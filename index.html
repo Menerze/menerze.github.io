@@ -20,25 +20,30 @@
       text-align: center;
     }
 
-    nav {
-      position: sticky;
-      top: 0;
+    .menu {
+      display: flex;
+      justify-content: center;
       background-color: #1565c0;
       padding: 1rem;
-      text-align: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
       z-index: 1000;
     }
 
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
+    .menu button {
+      background-color: white;
+      color: #1565c0;
+      border: none;
+      padding: 10px 20px;
       font-weight: bold;
-      font-size: 1.1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    .menu button:hover {
+      background-color: #e3f2fd;
     }
 
     section {
@@ -54,12 +59,6 @@
       color: #1e88e5;
     }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #ddd;
-    }
-
     .explicacao {
       display: none;
       margin-top: 10px;
@@ -69,7 +68,11 @@
       border-radius: 5px;
     }
 
-    button {
+    .explicacao.visible {
+      display: block;
+    }
+
+    .btn-explicacao {
       margin-top: 5px;
       padding: 8px 12px;
       background-color: #1e88e5;
@@ -79,89 +82,78 @@
       cursor: pointer;
     }
 
-    button:hover {
+    .btn-explicacao:hover {
       background-color: #1565c0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #ddd;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Portal Esportivo</h1>
-    <p>Seu canal de notícias, eventos e curiosidades do mundo dos esportes</p>
+    <p>Descubra a história e as modalidades que fazem parte do mundo dos esportes</p>
   </header>
 
-  <nav>
-    #inicioInício</a>
-    #historiaHistória</a>
-    <a href="#modalidades/a>
-    <a href="#conto</a>
-  </nav>
+  <div class="menu">
+    <button onclick="scrollToSection('inicio')">🏠 Início</button>
+    <button onclick="scrollToSection('historia')">📖 História</button>
+    <button onclick="scrollToSection('modalidades')">🏅 Esportes</button>
+  </div>
 
   <section id="inicio">
     <h2>Bem-vindo ao Portal Esportivo</h2>
-    <p>Explore o universo dos esportes com notícias atualizadas, curiosidades e histórias fascinantes sobre as principais modalidades do mundo.</p>
+    <p>Este site foi criado para apresentar a história dos esportes e suas principais modalidades. Navegue pelas seções acima para aprender mais sobre como os esportes evoluíram ao longo do tempo e quais são os mais praticados no mundo.</p>
   </section>
 
   <section id="historia">
     <h2>História dos Esportes</h2>
-    <p>Os esportes acompanham a humanidade desde os tempos antigos. Os Jogos Olímpicos da Grécia Antiga, por exemplo, já celebravam a força e habilidade dos atletas. Com o tempo, novas modalidades surgiram, como o futebol, o basquete e os esportes radicais, cada um com sua própria trajetória e impacto cultural.</p>
+    <p>Os esportes existem desde as civilizações antigas. Na Grécia Antiga, os Jogos Olímpicos já celebravam a força e habilidade dos atletas. Com o passar dos séculos, novas modalidades surgiram, como o futebol, o basquete e os esportes radicais. Hoje, os esportes são parte essencial da cultura, educação e saúde em todo o mundo.</p>
   </section>
 
   <section id="modalidades">
     <h2>Modalidades Esportivas</h2>
     <ul>
       <li>
-        <strong>Futebol:</strong> Campeonatos nacionais e internacionais.
-        <button onclick="mostrar('futebol')">Ver história</button>
+        <strong>Futebol:</strong> O esporte mais popular do mundo.
+        <button class="btn-explicacao" onclick="mostrar('futebol')">Ver história</button>
         <div id="futebol" class="explicacao">
-          O futebol surgiu na Inglaterra no século XIX e se tornou o esporte mais popular do mundo. No Brasil, é uma paixão nacional com cinco títulos mundiais.
+          O futebol surgiu na Inglaterra no século XIX. No Brasil, é uma paixão nacional com cinco títulos mundiais e milhões de torcedores.
         </div>
       </li>
       <li>
-        <strong>Basquete:</strong> NBA, NBB e torneios juvenis.
-        <button onclick="mostrar('basquete')">Ver história</button>
+        <strong>Basquete:</strong> Esporte de velocidade e habilidade.
+        <button class="btn-explicacao" onclick="mostrar('basquete')">Ver história</button>
         <div id="basquete" class="explicacao">
-          Criado em 1891 por James Naismith, o basquete é conhecido por sua velocidade e habilidade. A NBA é a liga mais famosa do mundo.
+          Criado em 1891 por James Naismith, o basquete se tornou um dos esportes mais assistidos do mundo, com destaque para a NBA.
         </div>
       </li>
       <li>
-        <strong>Vôlei:</strong> Competições de quadra e praia.
-        <button onclick="mostrar('volei')">Ver história</button>
+        <strong>Vôlei:</strong> Quadra e praia com grandes conquistas.
+        <button class="btn-explicacao" onclick="mostrar('volei')">Ver história</button>
         <div id="volei" class="explicacao">
-          O vôlei foi inventado nos EUA em 1895. O Brasil é referência mundial, com títulos olímpicos tanto na quadra quanto na praia.
+          O vôlei foi inventado nos EUA em 1895. O Brasil é referência mundial, com títulos olímpicos e mundiais.
         </div>
       </li>
       <li>
         <strong>Atletismo:</strong> Corridas, saltos e lançamentos.
-        <button onclick="mostrar('atletismo')">Ver história</button>
+        <button class="btn-explicacao" onclick="mostrar('atletismo')">Ver história</button>
         <div id="atletismo" class="explicacao">
-          O atletismo é uma das modalidades mais antigas, presente desde os Jogos Olímpicos da Grécia Antiga. Engloba diversas provas de velocidade e resistência.
+          O atletismo é uma das modalidades mais antigas, presente desde os primeiros Jogos Olímpicos da Antiguidade.
         </div>
       </li>
       <li>
-        <strong>Esportes Radicais:</strong> Skate, surf, escalada e mais.
-        <button onclick="mostrar('radicais')">Ver história</button>
+        <strong>Esportes Radicais:</strong> Adrenalina e aventura.
+        <button class="btn-explicacao" onclick="mostrar('radicais')">Ver história</button>
         <div id="radicais" class="explicacao">
-          Os esportes radicais ganharam destaque nos anos 90 e hoje fazem parte das Olimpíadas. São conhecidos pela adrenalina e criatividade.
+          Skate, surf, escalada e outros esportes radicais ganharam espaço nos anos 90 e hoje fazem parte das Olimpíadas.
         </div>
       </li>
     </ul>
-  </section>
-
-  <section id="contato">
-    <h2>Fale Conosco</h2>
-    <form>
-      <label for="nome">Nome</label>
-      <input type="text" id="nome" placeholder="Seu nome" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Seu email" required>
-
-      <label for="mensagem">Mensagem</label>
-      <textarea id="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
-
-      <button type="submit">Enviar</button>
-    </form>
   </section>
 
   <footer>
@@ -171,7 +163,11 @@
   <script>
     function mostrar(id) {
       const elemento = document.getElementById(id);
-      elemento.style.display = elemento.style.display === 'block' ? 'none' : 'block';
+      elemento.classList.toggle('visible');
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>
