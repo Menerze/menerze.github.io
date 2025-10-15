@@ -2,173 +2,150 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portal Esportivo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esporte no Brasil - Portal Interdisciplinar</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
+    :root {
+      --green: #007a33;
+      --yellow: #ffcc00;
+      --blue: #1565c0;
+      --bg: #f4f6f5;
+      --card: #ffffff;
+      --muted: #555;
+      --radius: 12px;
     }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #222; line-height: 1.6; }
+
+    /* Header */
     header {
-      background-color: #1e88e5;
+      background: linear-gradient(135deg, var(--green), var(--blue));
       color: white;
-      padding: 2rem;
+      padding: 40px 20px;
       text-align: center;
     }
+    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    header p { font-size: 1.1rem; opacity: 0.9; }
 
-    .menu {
-      display: flex;
-      justify-content: center;
-      background-color: #1565c0;
-      padding: 1rem;
-      gap: 20px;
+    /* Navigation */
+    nav {
+      background: white;
+      border-bottom: 2px solid #e6efe6;
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
     }
-
-    .menu button {
-      background-color: white;
-      color: #1565c0;
-      border: none;
-      padding: 10px 20px;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .menu button:hover {
-      background-color: #e3f2fd;
-    }
-
-    section {
-      padding: 2rem;
-      margin: 1rem auto;
-      max-width: 1000px;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      color: #1e88e5;
-    }
-
-    .explicacao {
-      display: none;
-      margin-top: 10px;
+    .nav-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      gap: 10px;
       padding: 10px;
-      background-color: #e3f2fd;
-      border-left: 4px solid #1e88e5;
-      border-radius: 5px;
+      flex-wrap: wrap;
     }
-
-    .explicacao.visible {
-      display: block;
-    }
-
-    .btn-explicacao {
-      margin-top: 5px;
+    .nav-inner a {
       padding: 8px 12px;
-      background-color: #1e88e5;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      text-decoration: none;
+      color: var(--green);
+      font-weight: 600;
+      border-radius: var(--radius);
+      transition: 0.3s;
     }
+    .nav-inner a:hover { background: #f0fff4; }
 
-    .btn-explicacao:hover {
-      background-color: #1565c0;
-    }
+    /* Main content */
+    main { max-width: 1100px; margin: 20px auto; padding: 0 15px; }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #ddd;
+    section { background: var(--card); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    section h2 { color: var(--green); margin-bottom: 12px; }
+    section img { width: 100%; border-radius: 8px; margin-bottom: 12px; }
+
+    p, ul { margin-bottom: 10px; }
+    ul { padding-left: 20px; }
+    .small { font-size: 0.9rem; color: var(--muted); }
+
+    footer { text-align: center; padding: 20px; background: #e6f2e6; margin-top: 20px; }
+    footer .credits { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
+
+    /* Buttons */
+    .btn { display: inline-block; padding: 8px 14px; background: var(--green); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 10px; transition: 0.3s; }
+    .btn:hover { background: #005522; }
+
+    /* Responsive */
+    @media(max-width:768px){
+      header h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Portal Esportivo</h1>
-    <p>Descubra a história e as modalidades que fazem parte do mundo dos esportes</p>
-  </header>
 
-  <div class="menu">
-    <button onclick="scrollToSection('inicio')">🏠 Início</button>
-    <button onclick="scrollToSection('historia')">📖 História</button>
-    <button onclick="scrollToSection('modalidades')">🏅 Esportes</button>
+<header>
+  <h1>Esporte no Brasil</h1>
+  <p>Explorando o esporte brasileiro através de diferentes disciplinas escolares</p>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#geografia">Geografia</a>
+    <a href="#historia">História</a>
+    <a href="#portugues">Português</a>
+    <a href="#artes">Artes</a>
+    <a href="#filosofia">Filosofia</a>
   </div>
+</nav>
 
-  <section id="inicio">
-    <h2>Bem-vindo ao Portal Esportivo</h2>
-    <p>Este site foi criado para apresentar a história dos esportes e suas principais modalidades. Navegue pelas seções acima para aprender mais sobre como os esportes evoluíram ao longo do tempo e quais são os mais praticados no mundo.</p>
+<main>
+
+  <!-- Geografia -->
+  <section id="geografia">
+    <h2>Geografia</h2>
+    <img src="https://cdn.pixabay.com/photo/2016/10/27/22/52/map-1773883_1280.jpg" alt="Mapa do Brasil">
+    <p><strong>Localização:</strong> O Brasil está na América do Sul, com grande diversidade territorial e climática.</p>
+    <p><strong>Aspectos físicos:</strong> Diferentes regiões possuem relevos variados, rios extensos e biomas ricos, que influenciam a prática de esportes ao ar livre, como surf no litoral e corrida em parques urbanos.</p>
+    <p class="small">Fonte: <a href="https://pt.wikipedia.org/wiki/Brasil" target="_blank">Wikipedia</a></p>
   </section>
 
+  <!-- História -->
   <section id="historia">
-    <h2>História dos Esportes</h2>
-    <p>Os esportes existem desde as civilizações antigas. Na Grécia Antiga, os Jogos Olímpicos já celebravam a força e habilidade dos atletas. Com o passar dos séculos, novas modalidades surgiram, como o futebol, o basquete e os esportes radicais. Hoje, os esportes são parte essencial da cultura, educação e saúde em todo o mundo.</p>
+    <h2>História</h2>
+    <img src="https://cdn.pixabay.com/photo/2017/01/31/13/14/books-2022461_1280.jpg" alt="História do Brasil">
+    <p><strong>Origens dos esportes:</strong> Desde o século XIX, o futebol e outros esportes foram introduzidos no Brasil por imigrantes e colonizadores, tornando-se parte da cultura nacional.</p>
+    <p><strong>Marcos históricos:</strong> Criação dos primeiros clubes de futebol, a profissionalização do esporte, participação em Jogos Olímpicos e Copas do Mundo.</p>
+    <p class="small">Vídeo sugerido: <a href="https://www.youtube.com/results?search_query=historia+do+futebol+brasileiro" target="_blank">História do futebol brasileiro</a></p>
   </section>
 
-  <section id="modalidades">
-    <h2>Modalidades Esportivas</h2>
-    <ul>
-      <li>
-        <strong>Futebol:</strong> O esporte mais popular do mundo.
-        <button class="btn-explicacao" onclick="mostrar('futebol')">Ver história</button>
-        <div id="futebol" class="explicacao">
-          O futebol surgiu na Inglaterra no século XIX. No Brasil, é uma paixão nacional com cinco títulos mundiais e milhões de torcedores.
-        </div>
-      </li>
-      <li>
-        <strong>Basquete:</strong> Esporte de velocidade e habilidade.
-        <button class="btn-explicacao" onclick="mostrar('basquete')">Ver história</button>
-        <div id="basquete" class="explicacao">
-          Criado em 1891 por James Naismith, o basquete se tornou um dos esportes mais assistidos do mundo, com destaque para a NBA.
-        </div>
-      </li>
-      <li>
-        <strong>Vôlei:</strong> Quadra e praia com grandes conquistas.
-        <button class="btn-explicacao" onclick="mostrar('volei')">Ver história</button>
-        <div id="volei" class="explicacao">
-          O vôlei foi inventado nos EUA em 1895. O Brasil é referência mundial, com títulos olímpicos e mundiais.
-        </div>
-      </li>
-      <li>
-        <strong>Atletismo:</strong> Corridas, saltos e lançamentos.
-        <button class="btn-explicacao" onclick="mostrar('atletismo')">Ver história</button>
-        <div id="atletismo" class="explicacao">
-          O atletismo é uma das modalidades mais antigas, presente desde os primeiros Jogos Olímpicos da Antiguidade.
-        </div>
-      </li>
-      <li>
-        <strong>Esportes Radicais:</strong> Adrenalina e aventura.
-        <button class="btn-explicacao" onclick="mostrar('radicais')">Ver história</button>
-        <div id="radicais" class="explicacao">
-          Skate, surf, escalada e outros esportes radicais ganharam espaço nos anos 90 e hoje fazem parte das Olimpíadas.
-        </div>
-      </li>
-    </ul>
+  <!-- Português -->
+  <section id="portugues">
+    <h2>Português</h2>
+    <img src="https://cdn.pixabay.com/photo/2016/11/29/05/08/book-1868520_1280.jpg" alt="Leitura e texto">
+    <p><strong>Texto descritivo:</strong> O esporte brasileiro é uma expressão cultural que une pessoas de diferentes regiões, classes sociais e idades. Eventos como o Carnaval e grandes competições esportivas refletem a paixão nacional pelo movimento e pela competição.</p>
+    <p class="small">Atividade: Produza uma reportagem sobre um atleta ou evento esportivo brasileiro.</p>
   </section>
 
-  <footer>
-    <p>© 2025 Portal Esportivo</p>
-  </footer>
+  <!-- Artes -->
+  <section id="artes">
+    <h2>Artes</h2>
+    <img src="https://cdn.pixabay.com/photo/2016/03/27/19/54/guitar-1284421_1280.jpg" alt="Música e cultura">
+    <p><strong>Expressões culturais:</strong> Música, dança e artes plásticas são influenciadas pelo esporte. Por exemplo, coreografias de torcidas, mascotes, logos de clubes e campanhas publicitárias mostram a integração do esporte e das artes.</p>
+    <p class="small">Sugestão: Analise a arte presente em camisetas, banners e campanhas de grandes clubes brasileiros.</p>
+  </section>
 
-  <script>
-    function mostrar(id) {
-      const elemento = document.getElementById(id);
-      elemento.classList.toggle('visible');
-    }
+  <!-- Filosofia -->
+  <section id="filosofia">
+    <h2>Filosofia</h2>
+    <img src="https://cdn.pixabay.com/photo/2016/11/22/19/08/meeting-1851208_1280.jpg" alt="Reflexão e sociedade">
+    <p><strong>Valores e ética:</strong> O esporte no Brasil transmite valores como disciplina, respeito, trabalho em equipe e superação pessoal.</p>
+    <p><strong>Reflexão social:</strong> O estudo da filosofia aplicada ao esporte ajuda a compreender o impacto cultural e social dos grandes eventos e a importância da inclusão e igualdade no acesso às práticas esportivas.</p>
+    <p class="small">Atividade: Debate sobre ética e fair play em competições esportivas.</p>
+  </section>
 
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
+</main>
+
+<footer>
+  <p>© 2025 Portal Esportivo Interdisciplinar</p>
+  <div class="credits">Imagens de Pixabay, conteúdo educativo. Projeto escolar para a disciplina de Publicar Aplicações Web.</div>
+</footer>
+
 </body>
 </html>
